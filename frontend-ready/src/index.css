@@ -1,0 +1,4 @@
+/* Import our design system styles */
+@import './styles/global.css';
+@import './styles/components.css';
+@import './styles/pages.css';
