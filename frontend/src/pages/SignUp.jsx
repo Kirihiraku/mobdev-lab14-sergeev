@@ -2,11 +2,12 @@ import { useState } from "react"
 import Button from "../components/Button"
 import Input from "../components/Input"
 import { Link } from "react-router-dom"
+import { registerUser } from "../api/api"
 
 const SignUp = () => {
     const [error, setError] = useState("")
 
-    const handleSubmit = (e) => {
+    const handleSubmit = async (e) => {
         e.preventDefault()
         setError("")
 
@@ -20,6 +21,9 @@ const SignUp = () => {
             email: e.target.email.value,
             password: e.target.password.value
         }
+
+        const data = await registerUser(user)
+        console.log(data);
     }
 
     return (
