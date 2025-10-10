@@ -2,13 +2,29 @@ import { Link } from "react-router-dom"
 import Button from "../components/Button"
 import Input from "../components/Input"
 import { useState } from "react"
+import { loginUser } from "../api/api"
 
 const SignIn = () => {
-    const [error, setError] = useState()
+    const [error, setError] = useState("")
 
-    const handleSubmit = (e) => {
+    const handleSubmit = async (e) => {
         e.preventDefault()
         setError("")
+
+        const user = {
+            username: e.target.username.value,
+            password: e.target.password.value
+        }
+
+        try {
+            const data = await loginUser(user)
+            const json = await data.json()
+            if (!json.success) throw new Error(json.error)
+            console.log(json);
+        } catch (err) {
+            console.error(err)
+            setError(err.message)
+        }
     }
 
     return (

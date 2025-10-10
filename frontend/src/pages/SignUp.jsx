@@ -22,8 +22,13 @@ const SignUp = () => {
             password: e.target.password.value
         }
 
-        const data = await registerUser(user)
-        console.log(data);
+        try {
+            const data = await registerUser(user)
+            console.log(data);
+        } catch (err) {
+            console.error(err)
+            setError(err.message)
+        }
     }
 
     return (
