@@ -1,4 +1,4 @@
-import { Link } from "react-router-dom"
+import { Link, useNavigate } from "react-router-dom"
 import Button from "../components/Button"
 import Input from "../components/Input"
 import { useState } from "react"
@@ -8,6 +8,7 @@ import { useUserStore } from "../store/store"
 const SignIn = () => {
     const [error, setError] = useState("")
     const {setJWT} = useUserStore()
+    const navigate = useNavigate()
 
     const handleSubmit = async (e) => {
         e.preventDefault()
@@ -19,10 +20,10 @@ const SignIn = () => {
         }
 
         try {
-            const data = await loginUser(user)
-            const json = await data.json()
+            const json = await loginUser(user)
             if (!json.success) throw new Error(json.error)
             setJWT(json.token)
+            navigate("/")
         } catch (err) {
             console.error(err)
             setError(err.message)
