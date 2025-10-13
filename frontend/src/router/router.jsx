@@ -5,6 +5,7 @@ import Board from "../pages/Board"
 import Layout from "../components/Layout"
 import MyMessages from "../pages/MyMessages"
 import AuthGuard from "../components/AuthGuard"
+import Logout from "../pages/Logout"
 export const router = createBrowserRouter([
     {
         path: "/signup",

@@ -38,3 +38,6 @@ export const loginUser = async (user) => {
     }
 }
 
+export const fetchPosts = async () => {
+    ???
+}
