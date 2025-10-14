@@ -1,4 +1,6 @@
 import { sendMessage } from "../api/api"
+import Button from "./Button"
+import TextArea from "./TextArea"
 
 const MessageField = () => {
     const handleSubmit = async (e) => {
@@ -17,12 +19,16 @@ const MessageField = () => {
                     <form
                         onSubmit={handleSubmit}
                         className="create-message-form"
-                    ></form>
+                    >
+                        <TextArea
+                            placeholder="Поделитесь мнением"
+                            name="content"
+                        />
+                        <Button>Отправить</Button>
+                    </form>
                 </div>
             </div>
         </div>
-
-        // .create-message-section>.container>.create-message-card>h2.create-message-title+form.create-message-form
     )
 }
 
