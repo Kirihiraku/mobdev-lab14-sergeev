@@ -4,6 +4,7 @@ import TextArea from "./TextArea"
 
 const MessageField = () => {
     const handleSubmit = async (e) => {
+        e.preventDefault()
         try {
             const message = { content: e.target.content.value }
             sendMessage(message)

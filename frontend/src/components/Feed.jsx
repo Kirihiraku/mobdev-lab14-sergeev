@@ -6,7 +6,7 @@ import { useUserStore } from "../store/store"
 
 const Feed = () => {
     const [messages, setMessages] = useState(undefined)
-    const {jwt} = useUserStore()
+    const { jwt } = useUserStore()
 
     useEffect(() => {
         const handleFetch = async () => {
@@ -38,8 +38,3 @@ const Feed = () => {
 }
 
 export default Feed
-
-// 1. Нужно где-то хранить, стейт
-// 2. Дописать метод для получения сообщения в api.jsx
-// 3. На прогрузке Feed (через useEffect) необходимо делать запрос и забирать все сообщения
-// 4. Необходимо отображать все сообщения
