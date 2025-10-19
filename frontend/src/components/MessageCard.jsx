@@ -3,7 +3,7 @@ import { useUserStore } from "../store/store"
 import { useMessageStore } from "../store/useMessageStore"
 
 const MessageCard = ({ content, createdAt, username, userId, id, likes, likedBy }) => {
-    const loggedUserId = useUserStore((state) => state.jwt.userId)
+    const loggedUserId = useUserStore((state) => state.jwt?.userId)
     const { getMessages } = useMessageStore()
     console.log(loggedUserId)
     
