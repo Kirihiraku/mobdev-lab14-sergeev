@@ -28,14 +28,12 @@ const Feed = ({myOwn = false}) => {
                     <div className="messages-grid">
                         {!myOwn 
                         ? messages && 
-                        messages.map((message) => (
-                                <MessageCard key={message.id} {...message} />
+                        messages.map((message, i) => (
+                                <MessageCard key={i} {...message} />
                             ))
-                            : messages
-                            .filter(
-                                (message) => message.userId == jwt.userId)
-                                .map((message) => (
-                                    <MessageCard key={message.id} {...message}
+                            : messages && messages.filter((message) => message.userId == jwt.userId)
+                                .map((message, i) => (
+                                    <MessageCard key={i} {...message}
                                     />
                                 ))}
                     </div>
